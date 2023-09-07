@@ -18,5 +18,16 @@ class HousesController < ApplicationController
     @house = House.find_by(id: params[:id])
     render :show
   end
-  
+
+  def update
+    @house = House.find_by(id: params[:id])
+    @house.update(
+      address: params[:address] || @house.address,
+      bedrooms: params[:bedrooms] || @house.bedrooms,
+      bathrooms: params[:bathrooms] || @house.bathrooms,
+      sqft: params[:sqft] || @house.sqft
+    )
+    render :show
+  end
+
 end
