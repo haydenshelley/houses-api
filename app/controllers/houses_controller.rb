@@ -13,4 +13,10 @@ class HousesController < ApplicationController
     )
     render :show
   end
+
+  def show 
+    @house = House.find_by(id: params[:id])
+    render :show
+  end
+  
 end
