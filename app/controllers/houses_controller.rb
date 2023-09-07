@@ -30,4 +30,10 @@ class HousesController < ApplicationController
     render :show
   end
 
+  def destroy
+    @house = House.find_by(id: params[:id])
+    @house.destroy
+    render json: {message: "deleted"}
+  end
+
 end
